@@ -3,16 +3,22 @@ import React from "react";
 import { Menu } from "antd";
 import { useNavigate, useLocation } from "react-router";
 
-const Sidebar = ({ menuItems }) => {
+const Sidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const menuItems = [
+    { path: "/dashboard", icon: "", label: "Dashboard" },
+    { path: "/test", icon: "", label: "Test" },
+    // Add other menu items here if needed
+  ];
 
   const handleMenuClick = (path) => {
     navigate(path);
   };
 
   return (
-    <Menu theme="dark" mode="inline" defaultSelectedKeys={[location.pathname]}>
+    <Menu theme="light" mode="inline" defaultSelectedKeys={[location.pathname]}>
       {menuItems.map(({ path, icon, label }) => (
         <Menu.Item key={path} icon={icon} onClick={() => handleMenuClick(path)}>
           {label}

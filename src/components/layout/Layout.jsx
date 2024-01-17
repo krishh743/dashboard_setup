@@ -1,18 +1,12 @@
 import React, { useState } from "react";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { Layout, Button, theme } from "antd";
+import { Layout, theme } from "antd";
 import { Outlet } from "react-router";
 import Sidebar from "../sidebar/Sidebar";
+import CustomHeader from "../header/Header";
 
-const { Header, Sider, Content } = Layout;
+const { Sider, Content } = Layout;
 
-const menuItems = [
-  { path: "/dashboard", icon: "", label: "Dashboard" },
-  { path: "/test", icon: "", label: "Test" },
-  // Add other menu items here if needed
-];
-
-const LayoutPage = ({ children }) => {
+const LayoutPage = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   const {
@@ -21,29 +15,28 @@ const LayoutPage = ({ children }) => {
 
   return (
     <Layout style={{ height: "100vh" }}>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
+      <Sider
+        style={{
+          backgroundColor: "white",
+          boxShadow:
+            "0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)",
+        }}
+        trigger={null}
+        collapsible
+        collapsed={collapsed}
+      >
         <div className="demo-logo-vertical border-b " />
-{/* <Header/> */}
-        <Sidebar menuItems={menuItems} />
+        {/* sidebar*/}
+        <Sidebar />
       </Sider>
       <Layout>
-        <Header
-          style={{
-            padding: 0,
-            background: colorBgContainer,
-          }}
-        >
-          <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
-            style={{
-              fontSize: "16px",
-              width: 64,
-              height: 64,
-            }}
-          />
-        </Header>
+        {/* header  start*/}
+        <CustomHeader
+          collapsed={collapsed}
+          onToggleCollapse={() => setCollapsed(!collapsed)}
+          colorBgContainer={colorBgContainer}
+        />
+        {/* header end */}
         <Layout className={`${"p-4 h-[92vh]"} bg-white w-full overflow-auto `}>
           <Content>
             <main>
