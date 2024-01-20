@@ -10,7 +10,6 @@ const Sidebar = () => {
   const menuItems = [
     { path: "/dashboard", icon: "", label: "Dashboard" },
     { path: "/test", icon: "", label: "Test" },
-    // Add other menu items here if needed
   ];
 
   const handleMenuClick = (path) => {
