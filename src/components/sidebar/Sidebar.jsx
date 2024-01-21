@@ -37,7 +37,6 @@ export default Sidebar;
 //   { path: "/dashboard", icon: "", label: "Dashboard" },
 //   { path: "/test", icon: "", label: "Test" },
 
-//   // Add other menu items here if needed
 // ];
 
 // function Sidemenu() {
