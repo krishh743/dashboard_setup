@@ -1,6 +1,5 @@
 // import { SearchIcon } from '@heroicons/react/outline';
 import { Input } from "antd";
-// import Cookies from 'js-cookie';
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -11,6 +10,7 @@ const CustomHeader = () => {
   const [searchKeyword, setSearchKeyword] = useState(
     queryParams.get("searchKeyword") || ""
   );
+
 
   const handleInputChange = (e) => {
     const newSearchKeyword = e.target.value;
