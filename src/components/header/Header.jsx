@@ -1,6 +1,5 @@
 // import { SearchIcon } from '@heroicons/react/outline';
 import { Input } from "antd";
-// import Cookies from 'js-cookie';
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -12,12 +11,12 @@ const CustomHeader = () => {
     queryParams.get("searchKeyword") || ""
   );
 
+
   const handleInputChange = (e) => {
     const newSearchKeyword = e.target.value;
     setSearchKeyword(newSearchKeyword);
     // Cookies.set('searchKeyWord', newSearchKeyword);
 
-    // Update the query parameter in the URL
     queryParams.set("searchKeyword", newSearchKeyword);
     navigate({
       pathname: location.pathname,
@@ -57,7 +56,6 @@ const CustomHeader = () => {
           placeholder="search"
           className="rounded-lg border-none  text-gray-100 text-sm placeholder:text-gray-400 h-10"
           value={searchKeyword}
-          // prefix={<SearchIcon className="w-5  h-5 pr-1 text-[#A6A6A6]" />}
           onChange={handleInputChange}
         />
       </div>
