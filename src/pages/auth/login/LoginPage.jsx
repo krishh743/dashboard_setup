@@ -35,12 +35,7 @@ const Login = () => {
   const handleApiCall = async (data) => {
     try {
       setIsLoading(true);
-      // const response = await getLoginApiCall(data);
-      // const token = response?.data?.data?.token;
-      // if (token) {
-      //   Cookies.set("auth_token", token);
-      //   router("/dashboard");
-      // }
+   
       toast.success("Successfully logged in.");
     } catch (error) {
       console.error("API call error:", error);
